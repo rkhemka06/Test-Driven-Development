@@ -3,20 +3,17 @@ from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 
-browser = webdriver.Chrome('/Users/rajatkhemka/Downloads/chromedriver 2')
-
 
 # Edith has heard about a cool new online to-do app. She goes
 # to check out its homepage
 
-browser.get('http://localhost:8000')
 # She notices the page title and header mention to-do lists
-#assert 'Django' in browser.title
+# assert 'Django' in browser.title
 
 # She is invited to enter a to-do item straight away
 
 
-#browser.quit()
+# browser.quit()
 
 class NewVisitorTest(unittest.TestCase):
 
@@ -37,8 +34,11 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
 
         # She notices the page title and header mention to-do lists
+     #   print(12)
+        print(self.browser.title)
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
+        print(header_text)
         self.assertIn('To-Do', header_text)
 
         # She is invited to enter a to-do item straight away
@@ -77,6 +77,7 @@ class NewVisitorTest(unittest.TestCase):
         # She visits that URL - her to-do list is still there.
 
         # Satisfied, she goes back to sleep
+
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
