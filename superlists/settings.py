@@ -79,7 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Tdd',  # mysite_db replaced by rajatkhemka
         'USER': 'rajatkhemka',
-        'HOST': 'localhost',
+        'PASSWORD':'Rajat@686494',
+        'HOST': '127.0.0.1',
         'PORT': '5432'
     }
 }
