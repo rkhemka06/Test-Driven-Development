@@ -7,7 +7,7 @@ env:
   - DJANGO_SETTINGS_MODULE="superlists.settings"
   - BUILD_ON_TRAVIS=true
   matrix:
-  - DJANGO=2.1.3 DB=postgresql
+  - DJANGO=1.11.3 DB=postgresql
 install:
   - pip install -r requirements.txt
 before_script:
