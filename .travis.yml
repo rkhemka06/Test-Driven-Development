@@ -6,14 +6,15 @@ env:
   global:
   - DJANGO_SETTINGS_MODULE="superlists.settings"
   - BUILD_ON_TRAVIS=true
+before-install:
+  - "export DISPLAY=99:0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
 install:
   - pip install -r requirements.txt
 before_script:
   - psql -c "CREATE DATABASE Tdd;" -U postgres
   - psql -c "CREATE USER rajatkhemka WITH CREATEUSER PASSWORD '';" -U postgres
 script:
-  # python manage.py migrate
-  # python manage.py test lists/
-  # python manage.py test functional_tests/
   - python manage.py test lists/ --keepdb
   - python manage.py test functional_tests/ --keepdb
