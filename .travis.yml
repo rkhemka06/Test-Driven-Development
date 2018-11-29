@@ -12,7 +12,7 @@ install:
   - pip install -r requirements.txt
 before_script:
   - psql -c "CREATE DATABASE Tdd;" -U postgres
-  - psql -c "CREATE USER rajatkhemka WITH CREATEUSER PASSWORD 'Besthuaihua@22';" -U postgres
+  - psql -c "CREATE USER rajatkhemka WITH CREATEUSER PASSWORD '';" -U postgres
 script:
   # python manage.py migrate
   # python manage.py test lists/
