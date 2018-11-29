@@ -9,7 +9,12 @@ matrix:
     dist: xenial
     sudo: true
 
-services: postgresql
+env:
+  global:
+  - DJANGO_SETTINGS_MODULE="superlists.settings"
+  - BUILD_ON_TRAVIS=true
+  matrix:
+  - DJANGO=1.11.3 DB=postgresql
 # command to install dependencies
 install:
   - pip install -r requirements.txt
