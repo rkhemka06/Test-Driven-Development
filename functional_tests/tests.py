@@ -10,8 +10,9 @@ MAX_WAIT = 10
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox();
-            #webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Chrome();
+            # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+
 
     def tearDown(self):
         self.browser.quit()
@@ -144,8 +145,8 @@ class NewVisitorTest(LiveServerTestCase):
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
         self.browser.quit()
-        self.browser = webdriver.Firefox();
-            # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Chrome()
+             # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
 
         # Francis visits the home page.  There is no sign of Edith's
         # list
