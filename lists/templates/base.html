@@ -15,7 +15,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="/static/base.css" rel="stylesheet">
-</head>>
+</head>
+>
 <body>
 <div class="container">
 
@@ -28,6 +29,11 @@
                            class="form-control input-lg"
                            placeholder="Enter a to-do item"/>
                     {% csrf_token %}
+                    {% if error %}
+                    <div class="form-group has-error">
+                        <span class="help-block">{{ error }}</span>
+                    </div>
+                    {% endif %}
                 </form>
             </div>
         </div>
