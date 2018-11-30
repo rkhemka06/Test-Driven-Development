@@ -10,7 +10,9 @@ MAX_WAIT = 10
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Firefox();
+            # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+
 
     def tearDown(self):
         self.browser.quit()
@@ -78,8 +80,6 @@ class NewVisitorTest(LiveServerTestCase):
         # Satisfied, she goes back to sleep
     """
 
-    """
-    Causing redirects error 
     def test_can_start_a_list_for_one_user(self):
         # Edith has heard about a cool new online to-do app. She goes
         # to check out its homepage
@@ -87,7 +87,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # She notices the page title and header mention to-do lists
         #   print(12)
-        print(self.browser.title)
+        #print(self.browser.title)
         self.assertIn('Welcome to TO-DO Application', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         # print(header_text)
@@ -127,7 +127,6 @@ class NewVisitorTest(LiveServerTestCase):
         # She visits that URL - her to-do list is still there.
 
         # Satisfied, she goes back to sleep
-    """
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Edith starts a new to-do list
@@ -146,7 +145,8 @@ class NewVisitorTest(LiveServerTestCase):
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
         self.browser.quit()
-        self.browser = webdriver.Chrome('/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Firefox()
+             # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
 
         # Francis visits the home page.  There is no sign of Edith's
         # list
