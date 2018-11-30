@@ -18,6 +18,7 @@ before_install:
 #- export CHROME_BIN=chromium-browser
 install:
   - pip install -r requirements.txt
+  - pip install coveralls
 before_script:
   - psql -c "CREATE DATABASE Tdd;" -U postgres
   - psql -c "CREATE USER rajatkhemka WITH CREATEUSER PASSWORD '';" -U postgres
