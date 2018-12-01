@@ -12,7 +12,7 @@ MAX_WAIT = 10
 
 class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
-        self.browser = webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Firefox() #Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
         staging_server = os.environ.get('STAGING_SERVER')
         if staging_server:
             self.live_server_url = 'http://' + staging_server

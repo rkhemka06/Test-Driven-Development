@@ -8,16 +8,13 @@ from lists.models import Item, List
 from django.utils.html import escape
 
 
-class HomePageTest(TestCase):
 
     #     self.assertTrue(html.strip().endswith('</html>'))
     # had to use print(repr(html)) to understand new line character added at end of line
     # <!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>To-Do lists</title>\n</head>\
     # n<body>\n\n</body>\n</html>'
 
-    def test_uses_home_template(self):
-        response = self.client.get('/')
-        self.assertTemplateUsed(response, 'home.html')
+
 
 
 class ItemModelTest(TestCase):
