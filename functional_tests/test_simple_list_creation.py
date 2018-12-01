@@ -121,7 +121,7 @@ class NewVisitorTest(FunctionalTest):
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
         self.browser.quit()
-        self.browser = webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Firefox() #Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
 
         # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
 
