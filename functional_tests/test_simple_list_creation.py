@@ -1,35 +1,12 @@
-from django.test import LiveServerTestCase
+from .base import FunctionalTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
-from selenium.common.exceptions import WebDriverException
+
 
 MAX_WAIT = 10
 
 
-class NewVisitorTest(LiveServerTestCase):
-
-    def setUp(self):
-        self.browser = webdriver.Firefox();
-            # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
-
-
-    def tearDown(self):
-        self.browser.quit()
-
-    def wait_for_row_in_list_table(self, row_text):
-        start_time = time.time()
-        while True:
-            try:
-                table = self.browser.find_element_by_id('id_list_table')
-                rows = table.find_elements_by_tag_name('tr')
-                self.assertIn(row_text, [row.text for row in rows])
-                return
-            except (AssertionError, WebDriverException) as e:
-                if time.time() - start_time > MAX_WAIT:
-                    raise e
-                time.sleep(0.5)
-
+class NewVisitorTest(FunctionalTest):
     """
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edith has heard about a cool new online to-do app. She goes
@@ -87,8 +64,8 @@ class NewVisitorTest(LiveServerTestCase):
 
         # She notices the page title and header mention to-do lists
         #   print(12)
-        #print(self.browser.title)
-        self.assertIn('Welcome to TO-DO Application', self.browser.title)
+        # print(self.browser.title)
+        self.assertIn('To-Do lists', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         # print(header_text)
         self.assertIn('To-Do', header_text)
@@ -123,7 +100,6 @@ class NewVisitorTest(LiveServerTestCase):
         # that the site has generated a unique URL for her -- there is some
         # explanatory text to that effect.
 
-
         # She visits that URL - her to-do list is still there.
 
         # Satisfied, she goes back to sleep
@@ -145,8 +121,9 @@ class NewVisitorTest(LiveServerTestCase):
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
         self.browser.quit()
-        self.browser = webdriver.Firefox()
-             # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+        self.browser = webdriver.Firefox() #Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
+
+        # webdriver.Chrome(executable_path=r'/Users/rajatkhemka/Downloads/chromedriver 2')
 
         # Francis visits the home page.  There is no sign of Edith's
         # list
@@ -173,3 +150,4 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
+
